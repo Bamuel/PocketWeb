@@ -1,10 +1,10 @@
 name: PocketWeb
-main: \PocketWeb\Main
-version: π
+main: PocketWeb\Main
+version: 1.0.0
 api: [1.0.0]
 load: POSTWORLD
 author: MegaSamNinja
-description: when /website is done, it sends a user the servers website
+description: sends a user the servers website
 commands:
  website:
   description: Tells the server website
