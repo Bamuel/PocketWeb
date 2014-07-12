@@ -25,9 +25,12 @@ class Main extends PluginBase{
     public function onCommand(CommandSender $sender, Command $command, $label, array $args){
 	switch($command->getName()){
             case "website":
-            	$sender->sendMessage("Our website URL is: ".$this->WebsiteURL);
+            	$sender->sendMessage("Our website is: ".$this->WebsiteURL);
             	return true;
             	break;
 	}
     }
+          else {
+        $sender->sendMessage("Please run command in game.");
+        return true;
 }
