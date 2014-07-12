@@ -4,6 +4,7 @@ namespace PocketWeb;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
+use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 
 class Main extends PluginBase{
@@ -11,7 +12,6 @@ class Main extends PluginBase{
     private $WebsiteURL;
     
     public function onEnable() {
-        $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $config = $this->getConfig();
         $this->WebsiteURL = $config->get("WebsiteURL");
         $this->getLogger()->info("PocketWeb has been enabled.");
@@ -30,11 +30,11 @@ class Main extends PluginBase{
 		            	return true; //return command success
 		            	break;
 			}
-	          	else { //if not-player (if console)
+	        else { //if not-player (if console)
 	        		$sender->sendMessage("Please run command in game."); //return message
 	        		return true; //return command success
-	          	}
-	          default:
+	        }
+	    default:
 		  	return false;
 	}
     }
