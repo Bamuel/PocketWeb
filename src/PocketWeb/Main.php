@@ -24,18 +24,18 @@ class Main extends PluginBase{
     
     public function onCommand(CommandSender $sender, Command $command, $label, array $args){
 	switch($command->getName()){ //get command
-		if ($sender instanceof Player) { //if player
-	            case "website": //if command is /website
-	            	$sender->sendMessage("Our website is: ".$this->WebsiteURL); //return message + website url
-	            	return true; //return command success
-	            	break;
-	            default:
-	            	return false;
-		}
-          	else { //if not-player (if console)
-        		$sender->sendMessage("Please run command in game."); //return message
-        		return true; //return command success
-          	}
+		case "website": //if command is /website
+			if ($sender instanceof Player) { //if player, not console
+		            	$sender->sendMessage("Our website is: ".$this->WebsiteURL); //return message + website url
+		            	return true; //return command success
+		            	break;
+		            default:
+		            	return false;
+			}
+	          	else { //if not-player (if console)
+	        		$sender->sendMessage("Please run command in game."); //return message
+	        		return true; //return command success
+	          	}
 	}
     }
 }
