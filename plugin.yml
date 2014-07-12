@@ -5,3 +5,7 @@ api: [1.0.0]
 load: POSTWORLD
 author: MegaSamNinja
 description: when /website is done, it sends a user the servers website
+commands:
+ website:
+  description: Tells the server website
+  usage: /website
