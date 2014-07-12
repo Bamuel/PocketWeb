@@ -12,8 +12,10 @@ class Main extends PluginBase{
     private $WebsiteURL;
     
     public function onEnable() {
-        $config = $this->getConfig();
-        $this->WebsiteURL = $config->get("WebsiteURL");
+    	@mkdir($this->getDataFolder());
+        $this->configFile = (new Config($this->getDataFolder()."config.yml", Config::YAML, array(
+            "WebsiteURL" => "http://pocketmine.net"
+        )))->getAll();
         $this->getLogger()->info("PocketWeb has been enabled.");
     }
 
@@ -26,7 +28,7 @@ class Main extends PluginBase{
 	switch($command->getName()){ //get command
 		case "website": //if command is /website
 			if ($sender instanceof Player) { //if player, not console
-		            	$sender->sendMessage("Our website is: ".$this->WebsiteURL); //return message + website url
+		            	$sender->sendMessage("Our website is: ".$this->configFile['WebsiteURL']); //return message + website url
 		            	return true; //return command success
 		            	break;
 			}
