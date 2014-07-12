@@ -29,6 +29,8 @@ class Main extends PluginBase{
 	            	$sender->sendMessage("Our website is: ".$this->WebsiteURL); //return message + website url
 	            	return true; //return command success
 	            	break;
+	            default:
+	            	return false;
 		}
           	else { //if not-player (if console)
         		$sender->sendMessage("Please run command in game."); //return message
