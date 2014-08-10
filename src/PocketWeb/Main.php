@@ -29,7 +29,8 @@ class Main extends PluginBase{
 	switch($command->getName()){ //get command
 		case "website": //if command is /website
 			if ($sender instanceof Player) { //if player, not console
-		            	$sender->sendMessage("Our website is: ".$this->configFile['WebsiteURL']); //return message + website url
+			$message = "Our Website is:";
+		            	$sender->sendMessage("$message ".$this->configFile['WebsiteURL']); //return message + website url
 		            	return true; //return command success
 		            	break;
 			}
